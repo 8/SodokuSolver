@@ -7,15 +7,15 @@ namespace SudokuSolver.Service
 {
   public interface ISudokuStateService
   {
-    SudokuStateModel GetState(StreamReader stream);
-    void WriteTo(SudokuStateModel state, Stream stream);
+    StateModel GetState(StreamReader stream);
+    void WriteTo(StateModel state, Stream stream);
   }
 
   public class SudokuStateService : ISudokuStateService
   {
-    public SudokuStateModel GetState(StreamReader stream)
+    public StateModel GetState(StreamReader stream)
     {
-      var state = new SudokuStateModel();
+      var state = new StateModel();
       var config = new Configuration { Delimiter = "," };
       using (var reader = new CsvReader(stream, config))
       {
@@ -30,7 +30,7 @@ namespace SudokuSolver.Service
       return state;
     }
 
-    public void WriteTo(SudokuStateModel state, Stream stream)
+    public void WriteTo(StateModel state, Stream stream)
     {
       using (var sw = new StreamWriter(stream))
       using (var writer = new CsvWriter(sw))
