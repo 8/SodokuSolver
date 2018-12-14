@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SudokuSolver": {
+      "commandName": "Project",
+      "commandLineArgs": "-i TestData/1.csv -o out.csv"
+    }
+  }
+}
